@@ -1,1 +1,1 @@
-
+Developed an AI-based Resume Screening System using Python and Machine Learning to automatically classify resumes into job categories. Applied NLP techniques like text preprocessing and TF-IDF for feature extraction. Trained ML models for classification and deployed the system using Streamlit for real-time resume analysis.
