@@ -1,0 +1,406 @@
+Firstly,I have installed python-docx to read text from .docx resumes or report and also extract information. So our model can analyze the content.
+                 **Import data set**
+
+we start by importing necessary libraries:
+os to work with files and folders,
+pandas to store data in a tabular format,
+and Document from python-docx to read .docx resume files.
+
+Here, we define the path where all the .docx resumes are stored.
+The r before the path is a raw string, which ensures backslashes are read correctly."
+
+re create an empty list data where we’ll store the text content of each resume along with its file name."
+
+We create an empty list data where we’ll store the text content of each resume along with its file name."
+
+"We loop through all the files in the folder. If a file ends with .docx, we process it.
+This makes sure we only read Word documents."
+
+"We create the full path of the file and open it using Document().
+Then, we extract all the text from its paragraphs and join them into one single string."
+
+We convert the list of dictionaries into a pandas DataFrame — basically a table with rows and columns.
+Then we save this table as a .csv file, so we can easily view and use the resume data for further processing or ML modeling."
+
+Finally, we print a success message showing that the CSV file was created successfully."
+
+Saves everything in a clean .csv file format.
+
+This makes the data ready for preprocessing and modeling.
+
+** Text Preprocessing**
+
+e start by importing necessary libraries:
+os to work with files and folders,
+pandas to store data in a tabular format,
+and Document from python-docx to read .docx resume files.
+
+Here, we define the path where all the .docx resumes are stored.
+The r before the path is a raw string, which ensures backslashes are read correctly."
+
+re create an empty list data where we’ll store the text content of each resume along with its file name."
+
+We create an empty list data where we’ll store the text content of each resume along with its file name."
+
+"We loop through all the files in the folder. If a file ends with .docx, we process it.
+This makes sure we only read Word documents."
+
+"We create the full path of the file and open it using Document().
+Then, we extract all the text from its paragraphs and join them into one single string."
+
+We convert the list of dictionaries into a pandas DataFrame — basically a table with rows and columns.
+Then we save this table as a .csv file, so we can easily view and use the resume data for further processing or ML modeling."
+
+Finally, we print a success message showing that the CSV file was created successfully."
+
+Saves everything in a clean .csv file format.
+
+This makes the data ready for preprocessing and modeling.
+
+** feature extracting**
+
+We start by importing the TfidfVectorizer from sklearn. 
+This tool converts the text from resumes into numerical values based on the importance of each word.
+
+We create a TF-IDF vectorizer with a maximum of 3000 features.
+That means it will keep the 3000 most important words from all resumes to represent the data."
+
+"We apply TF-IDF on the 'cleaned_content' column of our DataFrame.
+This column contains preprocessed resume text with cleaned and meaningful words.
+The result is stored in X, which is a numerical array representing the resume content."
+
+"Now, we check if the 'Category' column is present in the dataset.
+This column contains labels like 'Data Science', 'Web Development', etc., which we use for training the model.
+If it’s missing, we show a warning and set y to None to avoid error."
+
+"Lastly, we print the shape of X, which tells us how many resumes (rows) we have and how many features (words) we extracted using TF-IDF."
+
+"For example, a shape like (50, 3000) means we have 50 resumes, each represented by 3000 features."
+
+🧠 Why is TF-IDF Important?
+📢 You can add:
+
+"TF-IDF helps in identifying which words are important in each resume by reducing the influence of common but less meaningful words.
+This gives our model more relevant data to learn from."
+
+
+ Converts text into numerical format using TF-IDF
+✅ Keeps top 3000 important features
+✅ Prepares data (X) and labels (y) for training ML model.
+
+
+Your DataFrame does not have a column named 'Category', so the labels (y) used for training a supervised machine learning model are missing.
+
+✅ TF-IDF shape: (224, 3000)
+🔍 What this means:
+
+Your dataset contains:
+
+224 resumes (rows)
+
+3000 features (columns), which are the most important words extracted from the resume text.
+
+
+**Auto labelling data**
+Our resume dataset did not include predefined categories (e.g., Data Scientist, Web Developer).
+
+Since we are building a supervised machine learning model, labeled data is essential.
+
+Manual labeling would be time-consuming and impractical for large datasets.
+
+We used keyword-based auto-labeling to automatically assign categories based on relevant terms in the resume text.
+
+This approach is fast, scalable, and gives us a labeled dataset to train our model effectively.
+
+We define a function tag_category() that looks for specific keywords in the resume text.
+
+If keywords like 'python', 'machine learning', or 'pandas' are found → label as "Data Scientist".
+
+If 'javascript', 'react', or 'html' → label as "Web Developer".
+
+If 'recruitment' or 'interview' → label as "HR".
+
+Otherwise, the resume is labeled as "Other".
+
+We then apply this function to every row of the 'cleaned_content' column.
+
+Finally, value_counts() helps us check how many resumes fall into each category.
+
+📌 When we use `df['Category'].value_counts()`, it returns the number of resumes in each category.
+
+**model training evaluTION**
+
+Now that our data is ready and labeled, we train classification models to predict the job role based on resume content.
+We’ll use three popular ML algorithms — Naive Bayes, Support Vector Machine (SVM), and Logistic Regression — and compare their performance."
+
+
+"We start by transforming the cleaned resume text into numerical vectors using TF-IDF, keeping the top 384 features (important words).
+This converts raw text into a format suitable for training our machine learning models.
+X holds the features and y holds the target job categories."
+
+"We split the dataset into 80% training and 20% testing using train_test_split().
+This allows us to train the model on one part of the data and test how well it performs on unseen data."
+
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+📢 Say:
+
+"We import evaluation metrics like classification report and confusion matrix to measure how accurate and reliable each model is."
+
+"We define a helper function train_and_evaluate() to avoid repeating code.
+It trains the model, makes predictions, prints detailed metrics, and shows a confusion matrix to visualize model performance.
+We use this for each model: Naive Bayes, SVM, and Logistic Regression."
+
+Precision: Out of all predicted resumes for a role, how many were correct.
+
+Recall: Out of all actual resumes for a role, how many were correctly predicted.
+
+F1-score: Balance between precision and recall.
+
+Confusion Matrix: Shows correct and incorrect predictions in a grid format for each category."
+
+**Train & evLUETE SVM,NAIVE,logistice**
+
+"Now that we have our reusable function train_and_evaluate(), we apply it to three different classification models to see which performs best."
+
+Naive Bayes is a simple probabilistic model that works well for text classification.
+It assumes that all features are independent, which may not be true but still gives decent performance."
+
+✅ It's fast and works well when features are word frequencies.
+
+SVM is a powerful linear classifier that works well with high-dimensional data like text.
+It tries to find the best boundary that separates different classes."
+
+✅ Typically gives better accuracy than Naive Bayes for balanced text data.
+
+Logistic Regression is also a linear model that estimates probabilities and performs well when classes are linearly separable.
+It’s commonly used in many real-world text classification tasks."
+
+✅ max_iter=1000 ensures the model has enough iterations to converge.
+
+ 🎯 Evaluation Metrics Used:
+- **Precision** – correctness of positive predictions  
+- **Recall** – how well positives were detected  
+- **F1-Score** – balance between precision and recall  
+- **Confusion Matrix** – visual of predicted vs actual categories
+
+
+Used sentence-transformers to generate pre-trained BERT embeddings for resume text.
+Trained and evaluated classification models (Naive Bayes, SVM, Logistic Regression) using BERT features.
+Fine-tuning was skipped as it's not required for small/medium-sized labeled datasets.
+"To use pre-trained BERT models for text embedding, we install the sentence-transformers library, which provides easy access to several state-of-the-art models."
+
+*********************************
+
+"We import the SentenceTransformer class to load the BERT model, and numpy to handle numerical arrays."
+
+We load a lightweight BERT-based model called 'all-MiniLM-L6-v2'.
+This model is faster and optimized for sentence embeddings while still giving high performance."
+
+🧠 Optional Add-on:
+
+"Unlike traditional word-based TF-IDF, BERT captures the semantic meaning of entire sentences, so it's more context-aware."
+
+"We then generate vector embeddings for each resume using the encode() method.
+Each resume is converted into a dense vector that represents its meaning — not just keyword counts."
+
+"We use show_progress_bar=True to track progress while embeddings are being generated."
+
+
+## 📌 BERT-Based Resume Embedding
+
+To improve classification accuracy, we used a BERT-based transformer model (`all-MiniLM-L6-v2`) from the `sentence-transformers` library.
+
+### 🔍 Key Steps:
+- Installed and imported `sentence-transformers`
+- Loaded a lightweight, pre-trained model optimized for semantic similarity
+- Used `.encode()` to generate dense vector embeddings for each resume
+- Replaced TF-IDF features with BERT embeddings for model training
+
+> BERT embeddings provide context-aware features that capture the meaning of entire sentences, improving model performance in NLP tasks.
+
+********************************************After training a machine learning model, we save it to disk so that we don’t need to retrain it every time we want to use it.
+We use Python’s pickle library to serialize both the model and the vectorizer."
+
+We first train a LogisticRegression model using our training data.
+This model will be used for making predictions on new resumes."
+
+We use pickle.dump() to save the trained model in a file named model.pkl.
+This stores the model in a binary format so it can be reused later."
+
+We also save the TF-IDF vectorizer used for transforming text data.
+It’s important to save this too so we can apply the exact same transformation to new input resumes during prediction."
+
+When we want to make predictions later (for example, in a web app), we load the saved model and vectorizer using pickle.load()."
+
+"This allows us to build a real-time prediction system — like uploading a resume and instantly predicting the job role."
+
+2.) ## 📌 Saving and Loading the Trained Model
+
+We use Python's `pickle` module to save the trained Logistic Regression model and the TF-IDF vectorizer.
+
+### 💾 Steps:
+1. Train the final model using `LogisticRegression`
+2. Save the trained model to `model.pkl`
+3. Save the TF-IDF vectorizer to `tfidf.pkl`
+4. Load both when needed for prediction
+
+> This makes our model reusable and ready for deployment (e.g., in a Streamlit or Flask app).
+
+********************************************************
+Streamlit is a Python library used to turn machine learning models into interactive web applications — quickly and easily.
+We can build a web app with just Python — no need for HTML, CSS, or JavaScript.
+Allows users to upload .docx resumes easily.
+Allows users to upload .docx resumes easily.
+It's ideal for demoing ML models and building internal tools or lightweight production apps.
+This command installs the Streamlit library. Once installed, I can use it to create a user interface where users can upload resumes and get real-time job role predictions from our model."
+
+*****************************************
+
+## 📂 Streamlit Resume Screener App
+
+This app scans `.docx` resumes from a folder and uses our trained ML model to predict job roles.
+
+### 🔍 Features:
+- Upload-free batch scanning
+- Reads and preprocesses resume content
+- Predicts roles using TF-IDF + Logistic Regression
+- Displays results in an interactive table
+
+> Built using Streamlit for fast, Python-only web app development.
+
+Make sure the following are in the **same folder**:
+- `resume_app.py` (your code)
+- `model.pkl` (saved trained model)
+- `tfidf.pkl` (saved vectorizer)
+- `Resumes` folder (containing `.docx` resumes)
+
+---
+
+### 🔹 Step 2: Run the App
+
+Use this terminal or command prompt command:
+
+This will open a web browser at:
+
+http://localhost:8501/
+
+---
+
+### 🔹 Step 3: Prepare Resume Folder
+
+- Create a folder named `Resumes`
+- Place one or more `.docx` files inside it
+- These files will be scanned and classified
+
+---
+
+### 🔹 Step 4: Use the App
+
+- Click the **"🔍 Scan All Resumes"** button
+- The app will:
+  1. Read each `.docx` resume
+  2. Preprocess the text (cleaning, stemming)
+  3. Transform it using TF-IDF vectorizer
+  4. Predict the job category using the ML model
+  5. Display the output in a results table
+
+---
+
+### 📋 Example Output:
+
+| Resume Name       | Predicted Role   |
+|-------------------|------------------|
+| Akhil_DS.docx     | Data Scientist   |
+| Neha_Frontend.docx| Web Developer    |
+
+---
+
+### ⚠️ Note:
+> Warnings like `missing ScriptRunContext` may appear. These are internal Streamlit logs and **do not affect the output**.
+
+---
+
+## 🎯 Summary
+
+This completes the deployment of our **AI-based Resume Screener** using `Streamlit`. It allows batch resume scanning with a professional UI and real-time prediction capabilities.
+
+Save your script with a name like:
+Make sure this .py file is in the same folder 
+Use this command in the folder where your file is saved:
+streamlit run resume_app.py
+Your browser will open automatically at:http://localhost:8501
+
+********************************
+
+ ⚠️ Note: You may see warnings like `missing ScriptRunContext`.  
+> These are harmless Streamlit internals and do not affect the functionality or accuracy of the app.
+This is just a Streamlit runtime warning. It usually happens during background operations like downloading stopwords or rendering components.
+There’s no impact on output, so we can ignore it safely."
+
+"We built an interactive Streamlit web app to automate resume screening.
+This app scans all .docx resumes from a folder and predicts job roles using our trained machine learning model."
+We import all the required libraries:
+
+streamlit for building the UI
+
+pickle to load the model and vectorizer
+
+docx to read .docx files
+
+nltk for text preprocessing
+
+pandas for displaying results"
+
+"We load the pre-trained Logistic Regression model and TF-IDF vectorizer that we saved earlier using pickle."
+*****************
+We clean the resume content by:
+
+Removing special characters
+
+Converting text to lowercase
+
+Removing stopwords
+
+Applying stemming"
+
+📘 "This keeps only the most meaningful words to improve model prediction accuracy."
+
+"This function reads the content of each .docx resume and combines all paragraphs into one string.******************
+**********************
+
+Each resume is:
+
+Read using read_docx()
+
+Cleaned with preprocess()
+
+Vectorized with tfidf.transform()
+
+Predicted using model.predict()"
+"We show the predictions in an interactive table using st.dataframe().
+If scanning is successful, we display a green checkmark message."
+
+**********************
+# 🎯 Final Summary
+
+This project successfully demonstrates an end-to-end AI-based Resume Screener using:
+
+- 🧠 NLP for resume preprocessing
+- 🤖 ML models for role classification
+- 🌐 Streamlit for web-based deployment
+
+The system automates the classification of resumes into job roles like:
+- Data Scientist
+- Web Developer
+- HR
+- Other
+
+✅ This approach can improve recruitment efficiency by filtering resumes based on content, not just keywords.
+
+📈 Future improvements may include:
+- Using BERT or deep learning
+- Supporting PDF files
+- Integration with job databases
+
+**Thank you for reviewing my project!**
