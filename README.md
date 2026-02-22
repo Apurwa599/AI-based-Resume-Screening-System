@@ -1,6 +1,6 @@
 ## AI-Based Resume Screening System
 
-## Overview
+### Overview
 
 This project is an AI-based Resume Screening System developed as part of my Data Science & Machine Learning internship.The system automates the process of screening resumes by analyzing resume text and matching it with job descriptions using Natural Language Processing (NLP) and Machine Learning techniques.The goal is to help recruiters shortlist suitable candidates efficiently while reducing manual effort and bias.
 
@@ -20,7 +20,7 @@ This project is an AI-based Resume Screening System developed as part of my Data
 * **TF-IDF Vectorizer** – Feature extraction
 * **Cosine Similarity** – Resume–JD matching
 
-## System Workflow
+### System Workflow
 
 1. Load resumes and job description data
 2. Clean and preprocess text (lowercasing, stopword removal, lemmatization)
@@ -29,19 +29,13 @@ This project is an AI-based Resume Screening System developed as part of my Data
 5. Rank resumes based on matching score
 6. Display shortlisted candidates
 
----
-
-## 📊 Machine Learning Approach
+### Machine Learning Approach
 
 * **Text Vectorization**: TF-IDF
 * **Similarity Metric**: Cosine Similarity
 * **Evaluation**: Relevance score-based ranking
 
----
-
-## 📁 Project Structure
-
-```
+### Project Structure
 AI-Based-Resume-Screening-System/
 │
 ├── AI Based Resume Screening System.ipynb
@@ -49,15 +43,14 @@ AI-Based-Resume-Screening-System/
 │   ├── resumes.csv
 │   └── job_description.txt
 ├── README.md
-```
 
----
-## 🌟 Key Features
+### Key Features
 - Automated resume shortlisting
 - Job description–based matching
 - Resume ranking using similarity scores
 - Scalable and reusable pipeline
-## 📚 Learning Outcomes
+
+### Learning Outcomes
 - Practical understanding of NLP pipelines
 - Experience with TF-IDF and cosine similarity
 - Hands-on ML project implementation
