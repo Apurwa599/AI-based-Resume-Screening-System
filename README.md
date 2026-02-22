@@ -37,12 +37,11 @@ This project is an AI-based Resume Screening System developed as part of my Data
 
 ### Project Structure
 AI-Based-Resume-Screening-System/
-│
-├── AI Based Resume Screening System.ipynb
-├── data/
-│   ├── resumes.csv
-│   └── job_description.txt
-├── README.md
+- ├── AI Based Resume Screening System.ipynb
+- ├── data/
+- │   ├── resumes.csv
+- │   └── job_description.txt
+- ├── README.md
 
 ### Key Features
 - Automated resume shortlisting
@@ -56,55 +55,37 @@ AI-Based-Resume-Screening-System/
 - Hands-on ML project implementation
 - Improved data preprocessing and analysis skills
   
-## ▶️ How to Run the Project
+### How to Run the Project
 
 1. Clone the repository
-
 ```bash
 git clone <repository-url>
 ```
-
 2. Install required libraries
-
 ```bash
 pip install pandas numpy scikit-learn nltk spacy
 ```
-
 3. Open Jupyter Notebook
-
 ```bash
 jupyter notebook
 ```
-
 4. Run `AI Based Resume Screening System.ipynb`
-
----
-
-## ✅ Results
-
+   
+### Results
 * Successfully ranked resumes based on job relevance
 * Reduced manual resume screening effort
 * Improved shortlisting accuracy
-
----
-
-## 🚀 Future Enhancements
-
+  
+### Future Enhancements
 * Use **BERT / FastText** for better semantic understanding
 * Build a **Streamlit web application**
 * Add resume parsing (skills, experience, education extraction)
 * Multi-job role support
-
----
-
-## 👩‍💻 Author
-
+  
+### Author
 **Apurwa Khare**
 MCA (AI & ML)
 Data Science & Machine Learning Intern
 
----
-
-## 📜 License
-
+### License
 This project is for **academic and learning purposes only**.
