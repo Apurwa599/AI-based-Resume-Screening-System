@@ -55,22 +55,6 @@ AI-Based-Resume-Screening-System/
 - Hands-on ML project implementation
 - Improved data preprocessing and analysis skills
   
-### How to Run the Project
-
-1. Clone the repository
-```bash
-git clone <repository-url>
-```
-2. Install required libraries
-```bash
-pip install pandas numpy scikit-learn nltk spacy
-```
-3. Open Jupyter Notebook
-```bash
-jupyter notebook
-```
-4. Run `AI Based Resume Screening System.ipynb`
-   
 ### Results
 * Successfully ranked resumes based on job relevance
 * Reduced manual resume screening effort
