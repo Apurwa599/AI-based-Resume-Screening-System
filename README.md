@@ -21,7 +21,6 @@ This project is an AI-based Resume Screening System developed as part of my Data
 * **Cosine Similarity** – Resume–JD matching
 
 ### System Workflow
-
 1. Load resumes and job description data
 2. Clean and preprocess text (lowercasing, stopword removal, lemmatization)
 3. Convert text into numerical features using TF-IDF
