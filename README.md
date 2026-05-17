@@ -58,10 +58,10 @@ AI-Based-Resume-Screening-System/
 * Improved shortlisting accuracy
   
 ### Future Enhancements
-* Use **BERT / FastText** for better semantic understanding
+* It uses **BERT / FastText** for better semantic understanding
 * Build a **Streamlit web application**
 * Add resume parsing (skills, experience, education extraction)
-* Multi-job role support
+* It supports
   
 ### Author
 **Apurwa Khare**
