@@ -3,11 +3,7 @@
 This project is an AI-based Resume Screening System developed as part of my Data Science & Machine Learning internship.The system automates the process of screening resumes by analyzing resume text and matching it with job descriptions using Natural Language Processing (NLP) and Machine Learning techniques.The goal is to help recruiters shortlist suitable candidates efficiently while reducing manual effort and bias.
 
 ### Objectives
-* Automate resume shortlisting
-* Extract and preprocess resume text
-* Match resumes with job descriptions
-* Rank candidates based on relevance score
-* Improve hiring efficiency using AI
+The objective of this project is to automate the resume shortlisting process by extracting and preprocessing resume text, matching resumes with job descriptions, ranking candidates based on relevance scores, and improving hiring efficiency using AI techniques.
   
 ### Technologies & Tools Used
 * **Python**
