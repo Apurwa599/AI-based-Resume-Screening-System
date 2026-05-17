@@ -15,12 +15,12 @@ The objective of this project is to automate the resume shortlisting process by 
 * **Cosine Similarity** – Resume–JD matching
 
 ### System Workflow
-1. Load resumes and job description data
-2. Clean and preprocess text (lowercasing, stopword removal, lemmatization)
-3. Convert text into numerical features using TF-IDF
-4. Calculate similarity between resumes and job description
-5. Rank resumes based on matching score
-6. Display shortlisted candidates
+1. The system will load resumes and job description data.
+2. It will clean and preprocess the text using lowercasing, stopword removal, and lemmatization.
+3. It will convert text into numerical features using TF-IDF.
+4. It will calculate similarity between resumes and job descriptions.
+5. It will rank resumes based on matching scores.
+6. It will display shortlisted candidates.
 
 ### Machine Learning Approach
 
