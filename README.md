@@ -23,7 +23,6 @@ The objective of this project is to automate the resume shortlisting process by 
 6. It will display shortlisted candidates.
 
 ### Machine Learning Approach
-
 * **Text Vectorization**: TF-IDF
 * **Similarity Metric**: Cosine Similarity
 * **Evaluation**: Relevance score-based ranking
@@ -57,7 +56,6 @@ AI-Based-Resume-Screening-System/
 * It uses **BERT / FastText** for better semantic understanding
 * Build a **Streamlit web application**
 * Add resume parsing (skills, experience, education extraction)
-* It supports
   
 ### Author
 **Apurwa Khare**
