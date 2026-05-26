@@ -26,15 +26,7 @@ The objective of this project is to automate the resume shortlisting process by 
 * **Text Vectorization**: TF-IDF
 * **Similarity Metric**: Cosine Similarity
 * **Evaluation**: Relevance score-based ranking
-
-### Project Structure
-AI-Based-Resume-Screening-System/
-- ├── AI Based Resume Screening System.ipynb
-- ├── data/
-- │   ├── resumes.csv
-- │   └── job_description.txt
-- ├── README.md
-
+  
 ### Key Features
 - Automated resume shortlisting
 - Job description–based matching
